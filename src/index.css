@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #FAFAFA;
+    color: #1A1A1A;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  ::selection {
+    background-color: #D4AF37;
+    color: #1A1A1A;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1A1A1A;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #D4AF37;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #E8CC6E;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-gold text-brand-black font-semibold px-8 py-3 rounded-full 
+           hover:bg-brand-gold-light transition-all duration-300 
+           hover:shadow-lg hover:shadow-brand-gold/30 active:scale-95
+           text-sm uppercase tracking-wider;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-brand-gold text-brand-gold px-8 py-3 rounded-full
+           hover:bg-brand-gold hover:text-brand-black transition-all duration-300
+           active:scale-95 text-sm uppercase tracking-wider;
+  }
+
+  .btn-dark {
+    @apply bg-brand-green text-white font-semibold px-8 py-3 rounded-full
+           hover:bg-brand-green-light transition-all duration-300
+           hover:shadow-lg active:scale-95 text-sm uppercase tracking-wider;
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-lg shadow-black/5 overflow-hidden
+           hover:shadow-xl hover:shadow-black/10 transition-all duration-500
+           hover:-translate-y-1;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-serif font-bold text-brand-black mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-brand-gold font-sans text-sm uppercase tracking-[0.3em] font-semibold mb-2;
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #D4AF37 0%, #E8CC6E 50%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl
+           focus:border-brand-gold focus:ring-0 focus:outline-none
+           transition-all duration-300 font-sans text-sm;
+  }
+
+  .input-dark {
+    @apply w-full px-4 py-3 bg-brand-green-dark/50 border border-brand-gold/30 rounded-xl
+           text-white placeholder-white/50 focus:border-brand-gold focus:ring-0 
+           focus:outline-none transition-all duration-300 font-sans text-sm;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s ease-out;
+}
